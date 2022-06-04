@@ -11,37 +11,4 @@ package paquete04;
  */
 public class Ciudad {
     
-    private String nomCiu;
-    private String nomPro;
-    
-    public Ciudad(String nC, String nP){
-        
-        nomCiu = nC;
-        nomPro = nP;
-        
-    }
-    
-    public void establecerNombreCiudad(String nomC){
-        
-        nomCiu = nomC;
-        
-    }
-    
-    public void establecerNombreProvincia(String nomP){
-        
-        nomPro = nomP;
-        
-    }
-    
-    public String obtenerNombreCiudad(){
-        
-        return nomCiu;
-        
-    }
-    
-    public String obtenerNombreProvincia(){
-        
-        return nomPro;
-        
-    }
 }

@@ -11,37 +11,4 @@ package paquete03;
  */
 public class Barrio {
     
-    private String nomBa;
-    private String referencia;
-    
-    public Barrio(String nom, String refe){
-        
-        nomBa = nom;
-        referencia = refe;
-        
-    }
-    
-    public void establecerNombreBarrio(String nom){
-        
-        nomBa = nom;
-        
-    }
-    
-    public void establecerReferencia(String re) {
-        
-        referencia = re;
-        
-    }
-    
-    public String obtenerNombreBarrio(){
-        
-        return nomBa;
-        
-    }
-    
-    public String obtenerReferencia() {
-        
-        return referencia;
-        
-    }
 }
