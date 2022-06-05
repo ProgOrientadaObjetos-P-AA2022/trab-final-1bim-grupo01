@@ -57,9 +57,9 @@ public class Casa {
 
     }
 
-    public void establecerCostoFinal(double costo) {
+    public void calcularCostoFinal() {
 
-        cosF = costo;
+        cosF = numM2 * preM2;
 
     }
 

@@ -19,20 +19,24 @@ public class Departamento {
     private Propietario propietario;
     private double preciom2;
     private double numm2;
+    private double valAliM;
     private double costofinal;
     private Barrio barrio;
     private Ciudad ciudad;
-    private int num_cuartos;
+    private String nomEdi;
+    private String ubi;
     private Constructora constructora;
 
-    public Departamento(Propietario p, double pm2, double nM2, Barrio b,
-            Ciudad c, int nc, Constructora cons) {
+    public Departamento(Propietario p, double pm2, double nM2, double valA, Barrio b,
+            Ciudad c, String nom, String u, Constructora cons) {
         propietario = p;
         preciom2 = pm2;
         numm2 = nM2;
+        valAliM = valA;
         barrio = b;
         ciudad = c;
-        num_cuartos = nc;
+        nomEdi = nom;
+        ubi = u;
         constructora = cons;
     }
 
@@ -47,9 +51,21 @@ public class Departamento {
     public void establecerNumM2(double nM2) {
         numm2 = nM2;
     }
+    
+    public void establecerValorAlicuotaMensual(double val){
+        valAliM = val;
+    }
+    
+    public void establecerNombreEdi(String nom){
+        nomEdi = nom;
+    }
+    
+    public void establecerUbicacion(String u){
+        ubi = u;
+    }
 
-    public void establecerCostoFinal(double cf) {
-        costofinal = cf;
+    public void calcularCostoFinal() {
+        costofinal = (numm2 * preciom2)+ (valAliM * 12) ;
     }
 
     public void establecerBarrio(Barrio b) {
@@ -58,10 +74,6 @@ public class Departamento {
 
     public void establecerCiudad(Ciudad c) {
         ciudad = c;
-    }
-
-    public void establecerNumCuartos(int nc) {
-        num_cuartos = nc;
     }
 
     public void establecerConstructora(Constructora cons) {
@@ -79,6 +91,18 @@ public class Departamento {
     public double establecerNumM2() {
         return numm2;
     }
+    
+    public double obtenerValorAlicuotaMensual(){
+        return valAliM;
+    }
+    
+    public String obtenerNombreEdi(){
+        return nomEdi;
+    }
+    
+    public String obtenerUbicacion(){
+        return ubi;
+    }
 
     public double obtenerCostoFinal() {
         return costofinal;
@@ -90,10 +114,6 @@ public class Departamento {
 
     public Ciudad obtenerCiudad() {
         return ciudad;
-    }
-
-    public int obtenerNumCuartos() {
-        return num_cuartos;
     }
 
     public Constructora obtenerConstructora() {
