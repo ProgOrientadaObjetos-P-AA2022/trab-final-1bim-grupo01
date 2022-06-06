@@ -5,11 +5,13 @@
  */
 package paquete02;
 
+import java.io.Serializable;
+
 /**
  *
  * @author reroes
  */
-public class Propietario {
+public class Propietario implements Serializable {
 
     private String nombres;
     private String apellidos;
@@ -43,5 +45,12 @@ public class Propietario {
 
     public String obtenerIdentificacion() {
         return identificacion;
+    }
+    @Override
+    public String toString(){
+        String valor = String.format("%s - %s - %s\n"
+                , obtenerNombres(), 
+                 obtenerApellidos(), obtenerIdentificacion());
+        return valor;
     }
 }

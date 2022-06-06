@@ -5,6 +5,7 @@
  */
 package paquete06;
 
+import java.io.Serializable;
 import paquete02.Propietario;
 import paquete03.Barrio;
 import paquete04.Ciudad;
@@ -14,7 +15,7 @@ import paquete05.Constructora;
  *
  * @author reroes
  */
-public class Casa {
+public class Casa implements Serializable{
 
     private Propietario propi;
     private double preM2;
@@ -25,16 +26,15 @@ public class Casa {
     private int numC;
     private Constructora constru;
 
-    public Casa(Propietario p, double pM2, double nM2, double cF,
-            Barrio ba, Ciudad ciu, int num, Constructora c) {
+    public Casa(double pM2, double nM2, int num, Propietario p,
+            Barrio ba, Ciudad ciu, Constructora c) {
 
         propi = p;
         preM2 = pM2;
         numM2 = nM2;
-        cosF = cF;
+        numC = num;
         barrio = ba;
         ciudad = ciu;
-        numC = num;
         constru = c;
 
     }
@@ -75,9 +75,9 @@ public class Casa {
 
     }
 
-    public void establecerNumeroCuartos(int numc) {
+    public void establecerNumeroCuartos(int num) {
 
-        numC = numc;
+        numC = num;
 
     }
 
@@ -133,5 +133,32 @@ public class Casa {
 
         return constru;
 
+    }
+    @Override
+    public String toString() {
+        
+        String cadena = String.format("\tInformacion casa:\n"
+                + "Precio metro cuadrado: %.2f \n"
+                + "Numero metros Cuadrados: %.2f \n"
+                + "Numero Cuartos: %d \n"
+                + "Costo final: %.2f\n"
+                + "->PROPIETARIO\n"
+                + "Nombres: %s \n"
+                + "Apellidos: %s \n"
+                + "Identificacion: %s\n"
+                + "->BARRIO\n"
+                + "Nombre barrio: %s \n"
+                + "Referencia: %s\n"
+                + "->CIUDAD\n"
+                + "Nombre Ciudad: %s \n"
+                + "Nombre Provincia: %s \n"
+                + "CONSTRUCTORA\n"
+                + "Nombre Constructora: %s \n"
+                + "Id Empresa: %s\n"
+                ,preM2, numM2, numC, cosF, propi.obtenerNombres(),propi.obtenerApellidos(),propi.obtenerIdentificacion(),
+                barrio.obtenerNombreBarrio(),barrio.obtenerReferencia(),
+                ciudad.obtenerNombreCiudad(),ciudad.obtenerNombreProvincia(),
+                constru.obtenerNombreConstructora(),constru.obteneridEmpresa());
+        return cadena;
     }
 }

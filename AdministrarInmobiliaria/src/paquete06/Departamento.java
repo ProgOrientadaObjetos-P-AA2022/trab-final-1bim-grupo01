@@ -5,6 +5,7 @@
  */
 package paquete06;
 
+import java.io.Serializable;
 import paquete02.Propietario;
 import paquete03.Barrio;
 import paquete04.Ciudad;
@@ -14,7 +15,7 @@ import paquete05.Constructora;
  *
  * @author reroes
  */
-public class Departamento {
+public class Departamento implements Serializable{
 
     private Propietario propietario;
     private double preciom2;
@@ -88,7 +89,7 @@ public class Departamento {
         return preciom2;
     }
 
-    public double establecerNumM2() {
+    public double obtenerNumM2() {
         return numm2;
     }
     
@@ -119,4 +120,34 @@ public class Departamento {
     public Constructora obtenerConstructora() {
         return constructora;
     }
+    
+    @Override
+    public String toString() {
+        
+        String cadena = String.format("Informacion Departamento:\n"
+                + "Precio metro cuadrado: %.2f \n"
+                + "Numero metros Cuadrados: %.2f\n"
+                + "Valor AliCuota: %.2f \n"
+                + "Costo final: %.2f\n"
+                + "->PROPIETARIO\n"
+                + "Nombres: %s\n"
+                + "Apellidos: %s \n"
+                + "Identificacion: %s\n"
+                + "->BARRIO\n"
+                + "Nombre barrio: %s \n"
+                + "Referencia: %s\n"
+                + "->CIUDAD\n"
+                + "Nombre Ciudad: %s \n"
+                + "Nombre Provincia: %s \n"
+                + "->CONSTRUCTORA\n"
+                + "Nombre Constructora: %s \n"
+                + "Id de Empresa: %s\n"
+                , preciom2, numm2, valAliM, costofinal, propietario.obtenerNombres(),
+                propietario.obtenerApellidos(), propietario.obtenerIdentificacion(),
+                barrio.obtenerNombreBarrio(),barrio.obtenerReferencia(),
+                ciudad.obtenerNombreCiudad(),ciudad.obtenerNombreProvincia(),
+                constructora.obtenerNombreConstructora(),constructora.obteneridEmpresa());
+        return cadena;
+    }
+    
 }

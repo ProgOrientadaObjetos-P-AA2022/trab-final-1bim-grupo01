@@ -5,11 +5,13 @@
  */
 package paquete04;
 
+import java.io.Serializable;
+
 /**
  *
  * @author reroes
  */
-public class Ciudad {
+public class Ciudad implements Serializable{
     private String nomCiu;
     private String nomPro;
     
@@ -42,5 +44,12 @@ public class Ciudad {
         
         return nomPro;
         
+    }
+    @Override
+    public String toString(){
+        String valor = String.format("%s - %s\n"
+                , obtenerNombreCiudad(), 
+                 obtenerNombreProvincia());
+        return valor;
     }
 }
